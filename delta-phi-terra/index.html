@@ -132,6 +132,13 @@
   }
   .dpt-card p{font-size:0.95rem; color:#454f3e; margin:0;}
 
+  /* Location tags */
+  .dpt-tag-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .dpt-tag{
+    font-size:0.85rem; font-weight:600; color:var(--dpt-green);
+    border:1.5px solid rgba(12,58,32,0.3); border-radius:999px; padding:7px 16px;
+  }
+
   /* Stats / why now */
   .dpt-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:40px;}
   .dpt-stat b{
@@ -152,14 +159,30 @@
   .dpt-step h3{font-family:var(--dpt-serif); margin:0 0 8px; color:var(--dpt-green); font-size:1.1rem;}
   .dpt-step p{margin:0; color:#454f3e; font-size:0.98rem; max-width:640px;}
 
-  /* Gallery placeholder */
-  .dpt-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px;}
-  .dpt-gallery-item{
-    aspect-ratio:4/3; border-radius:12px;
-    border:1.5px dashed rgba(12,58,32,0.35);
-    background:repeating-linear-gradient(135deg, rgba(198,151,62,0.08) 0 12px, transparent 12px 24px);
-    display:flex; align-items:center; justify-content:center;
-    color:#6b7460; font-size:0.85rem; text-align:center; padding:14px;
+  /* Gallery mosaic */
+  .dpt-mosaic{
+    display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:130px;
+    grid-auto-flow:dense; gap:12px; margin-top:40px;
+  }
+  .dpt-mosaic-item{
+    position:relative; border-radius:12px; overflow:hidden; background:var(--dpt-cream-dark);
+  }
+  .dpt-mosaic-item img{
+    width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease;
+  }
+  .dpt-mosaic-item:hover img{transform:scale(1.04);}
+  .dpt-mosaic-item .dpt-cap{
+    position:absolute; left:0; right:0; bottom:0; padding:22px 16px 12px;
+    background:linear-gradient(to top, rgba(8,42,23,0.82), transparent);
+    color:var(--dpt-cream); font-size:0.85rem; font-weight:600; letter-spacing:0.01em;
+  }
+  .dpt-mosaic-item.dpt-tile-lg{grid-column:span 2; grid-row:span 2;}
+  .dpt-mosaic-item.dpt-tile-wide{grid-column:span 2;}
+  .dpt-mosaic-item.dpt-tile-tall{grid-row:span 2;}
+  @media (max-width: 640px){
+    .dpt-mosaic{grid-template-columns:repeat(2,1fr); grid-auto-rows:120px;}
+    .dpt-mosaic-item.dpt-tile-lg{grid-column:span 2; grid-row:span 2;}
+    .dpt-mosaic-item.dpt-tile-wide{grid-column:span 2;}
   }
 
   /* Contact */
@@ -192,14 +215,12 @@
     .dpt-cols{grid-template-columns:1fr; gap:28px;}
     .dpt-grid{grid-template-columns:repeat(2,1fr);}
     .dpt-stats{grid-template-columns:1fr; gap:22px;}
-    .dpt-gallery{grid-template-columns:1fr 1fr;}
     .dpt-contact{grid-template-columns:1fr; padding:36px 24px;}
     .dpt-hero{padding:64px 0 72px;}
     .dpt-hero-symbol{width:260px;}
   }
   @media (max-width:520px){
     .dpt-grid{grid-template-columns:1fr;}
-    .dpt-gallery{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -263,8 +284,34 @@
     </div>
   </section>
 
+  <!-- DÓNDE TRABAJAMOS -->
+  <section class="dpt-section dpt-section-alt" id="zona">
+    <div class="dpt-wrap dpt-cols">
+      <div>
+        <div class="dpt-kicker">Dónde trabajamos</div>
+        <h2>Entre el Delta de l'Ebre y la costa del Baix Ebre</h2>
+      </div>
+      <div>
+        <p class="dpt-body">
+          Nuestros primeros proyectos se concentran en el sur de Tarragona,
+          en el entorno del Delta de l'Ebre y los municipios de Perelló,
+          l'Ametlla de Mar i l'Ampolla: una de las zonas agrícolas
+          mediterráneas de mayor valor ecológico y, a la vez, con más
+          presión sobre el suelo — arrozales, secano abandonado y una
+          franja costera cada vez más exigida.
+        </p>
+        <div class="dpt-tag-row">
+          <span class="dpt-tag">Perelló</span>
+          <span class="dpt-tag">L'Ametlla de Mar</span>
+          <span class="dpt-tag">L'Ampolla</span>
+          <span class="dpt-tag">Delta de l'Ebre</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ENFOQUE / PILARES -->
-  <section class="dpt-section dpt-section-alt" id="enfoque">
+  <section class="dpt-section" id="enfoque">
     <div class="dpt-wrap">
       <div class="dpt-kicker">Enfoque</div>
       <h2>Cuatro principios detrás de cada finca</h2>
@@ -294,7 +341,7 @@
   </section>
 
   <!-- POR QUÉ AHORA -->
-  <section class="dpt-section">
+  <section class="dpt-section dpt-section-alt">
     <div class="dpt-wrap dpt-cols">
       <div>
         <div class="dpt-kicker">Por qué ahora</div>
@@ -324,7 +371,7 @@
   </section>
 
   <!-- CÓMO TRABAJAMOS -->
-  <section class="dpt-section dpt-section-alt" id="proceso">
+  <section class="dpt-section" id="proceso">
     <div class="dpt-wrap">
       <div class="dpt-kicker">Cómo trabajamos</div>
       <h2>De la finca abandonada al proyecto en marcha</h2>
@@ -361,16 +408,49 @@
     </div>
   </section>
 
-  <!-- GALERÍA (placeholder para fotos reales) -->
-  <section class="dpt-section">
+  <!-- GALERÍA -->
+  <section class="dpt-section dpt-section-alt">
     <div class="dpt-wrap">
-      <div class="dpt-kicker">Proyectos</div>
-      <h2>Fincas en recuperación</h2>
-      <p class="dpt-body">Espacio reservado para fotos reales de las fincas y el trabajo de campo — sustituir por imágenes propias.</p>
-      <div class="dpt-gallery">
-        <div class="dpt-gallery-item">Foto finca — antes / después</div>
-        <div class="dpt-gallery-item">Foto trabajo de campo</div>
-        <div class="dpt-gallery-item">Foto suelo / cultivo</div>
+      <div class="dpt-kicker">El entorno</div>
+      <h2>Perelló, l'Ametlla de Mar, l'Ampolla y el Delta</h2>
+      <p class="dpt-body">Un vistazo al paisaje donde trabajamos: costa, olivar, piedra seca y el Delta de l'Ebre al fondo.</p>
+      <div class="dpt-mosaic">
+        <div class="dpt-mosaic-item dpt-tile-lg">
+          <img src="assets/photo-vista-delta.jpg" alt="Vista al Delta de l'Ebre desde la finca, bajo un pino">
+          <div class="dpt-cap">Vista al Delta de l'Ebre desde la finca</div>
+        </div>
+        <div class="dpt-mosaic-item dpt-tile-wide">
+          <img src="assets/photo-arcoiris-masia.jpg" alt="Arcoíris sobre una masia y el olivar tras la tormenta">
+          <div class="dpt-cap">Después de la tormenta</div>
+        </div>
+        <div class="dpt-mosaic-item">
+          <img src="assets/photo-tocon.jpg" alt="Tocón de un árbol talado con vegetación nueva alrededor">
+          <div class="dpt-cap">Vida nueva junto al tocón</div>
+        </div>
+        <div class="dpt-mosaic-item dpt-tile-tall">
+          <img src="assets/photo-muro-piedra.jpg" alt="Muro de piedra seca con leña apilada entre olivos">
+          <div class="dpt-cap">Piedra seca y leña de poda</div>
+        </div>
+        <div class="dpt-mosaic-item">
+          <img src="assets/photo-olivos-mar.jpg" alt="Olivar con chumberas en primer plano y vistas al mar">
+          <div class="dpt-cap">Olivar con vistas al mar</div>
+        </div>
+        <div class="dpt-mosaic-item">
+          <img src="assets/photo-cala.jpg" alt="Cala rocosa de aguas transparentes en la costa del Baix Ebre">
+          <div class="dpt-cap">La costa del Baix Ebre</div>
+        </div>
+        <div class="dpt-mosaic-item">
+          <img src="assets/photo-nisperos.jpg" alt="Nísperos maduros en el árbol">
+          <div class="dpt-cap">Nísperos de la finca</div>
+        </div>
+        <div class="dpt-mosaic-item">
+          <img src="assets/photo-aloe.jpg" alt="Flores de áloe silvestre entre el bosque mediterráneo">
+          <div class="dpt-cap">Flora silvestre mediterránea</div>
+        </div>
+        <div class="dpt-mosaic-item">
+          <img src="assets/photo-escarabajo.jpg" alt="Escarabajo joya sobre madera, detalle de la biodiversidad local">
+          <div class="dpt-cap">Biodiversidad de la finca</div>
+        </div>
       </div>
     </div>
   </section>
