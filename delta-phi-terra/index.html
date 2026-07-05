@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delta Phi Terra — Recuperación de fincas agrícolas y suelo mediterráneo</title>
-<meta name="description" content="Delta Phi Terra recupera fincas agrícolas degradadas o abandonadas y regenera el suelo mediterráneo mediante proyectos propios de agricultura regenerativa a largo plazo.">
+<title>Delta Phi Terra — Pequeños campos, nueva vida</title>
+<meta name="description" content="Delta Phi Terra recupera pequeñas fincas mediterráneas —olivares, almendros, algarrobos— abandonadas o degradadas, para devolver vida al suelo.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/favicon-192.png">
@@ -111,8 +111,34 @@
     color:var(--dpt-green); margin:0 0 20px; max-width:680px;
   }
   .dpt-section p.dpt-body{font-size:1.05rem; max-width:700px; color:#3a4234;}
+  .dpt-pullquote{
+    font-family:var(--dpt-serif); font-style:italic; color:var(--dpt-green);
+    font-size:1.25rem; line-height:1.5; max-width:600px;
+    border-left:3px solid var(--dpt-gold); padding-left:22px; margin:28px 0 0;
+  }
 
   .dpt-cols{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+
+  /* Valores / manifesto */
+  .dpt-values{background:var(--dpt-green); color:var(--dpt-cream);}
+  .dpt-values .dpt-kicker{color:var(--dpt-gold-light);}
+  .dpt-values .dpt-values-statement{
+    font-family:var(--dpt-serif); font-size:clamp(1.8rem, 4vw, 2.6rem);
+    text-align:center; margin:0 0 56px; color:var(--dpt-cream); max-width:none;
+  }
+  .dpt-values-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px;}
+  .dpt-value h3{
+    font-family:var(--dpt-serif); font-size:1.3rem; margin:0 0 12px; color:var(--dpt-gold-light);
+  }
+  .dpt-value p{margin:0; font-size:0.98rem; color:rgba(250,246,239,0.86); max-width:38ch;}
+  .dpt-values-close{
+    font-family:var(--dpt-serif); font-style:italic; text-align:center;
+    font-size:1.15rem; color:rgba(250,246,239,0.9); max-width:600px;
+    margin:52px auto 0; line-height:1.5;
+  }
+  @media (max-width:700px){
+    .dpt-values-grid{grid-template-columns:1fr; gap:28px;}
+  }
 
   /* Pillars grid */
   .dpt-grid{
@@ -248,11 +274,11 @@
     <img class="dpt-hero-symbol" src="assets/logo-symbol.png" alt="">
     <div class="dpt-wrap">
       <span class="dpt-eyebrow">Delta Phi Terra</span>
-      <h1>Recuperamos fincas agrícolas y regeneramos el suelo mediterráneo.</h1>
+      <h1>Pequeños campos, nueva vida.</h1>
       <p class="dpt-lead">
-        Proyectos propios de restauración de tierra degradada o abandonada,
-        devolviéndola a la producción con un enfoque regenerativo y una visión
-        de largo plazo — donde el impacto ambiental y el valor del activo crecen juntos.
+        Recuperamos pequeñas fincas mediterráneas — olivares, almendros,
+        algarrobos — para devolver vida al suelo. No las limpiamos para que
+        se vean bonitas: las recuperamos para que el suelo vuelva a respirar.
       </p>
       <div class="dpt-cta-row">
         <a href="#contacto" class="dpt-btn dpt-btn-primary">Hablemos del proyecto</a>
@@ -266,21 +292,52 @@
     <div class="dpt-wrap dpt-cols">
       <div>
         <div class="dpt-kicker">El proyecto</div>
-        <h2>De la estrategia de negocio a la tierra</h2>
+        <h2>Ni abandono, ni finca de recreo</h2>
       </div>
       <div>
         <p class="dpt-body">
-          Delta Phi Terra nace de un cambio de rumbo: dejar de mirar el suelo
-          únicamente como un activo que explotar, y empezar a tratarlo como
-          un sistema vivo que hay que recuperar antes de que produzca valor.
+          Las pequeñas fincas mediterráneas quedan atrapadas entre dos
+          destinos. O se abandonan, porque su tamaño, su pendiente o su
+          secano las dejan fuera del modelo agrícola dominante. O se
+          revalorizan como fincas de recreo, donde se cuida la casa, la
+          piscina o las vistas, pero el suelo pasa a un segundo plano.
         </p>
         <p class="dpt-body">
-          Identificamos fincas agrícolas mediterráneas degradadas, abandonadas
-          o mal gestionadas, y las convertimos en proyectos propios de
-          regeneración a largo plazo: recuperando su fertilidad, su
-          biodiversidad y su capacidad productiva, finca a finca.
+          Delta Phi Terra trabaja en ese punto ciego: recuperamos pequeños
+          olivares, almendros y algarrobales abandonados o degradados,
+          finca a finca, devolviendo centralidad al suelo — su fertilidad,
+          su biodiversidad y su capacidad productiva.
+        </p>
+        <p class="dpt-pullquote">
+          «Una finca no se recupera cuando se limpia para verla bonita.
+          Se recupera cuando el suelo vuelve a respirar.»
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="dpt-section dpt-values">
+    <div class="dpt-wrap">
+      <div class="dpt-kicker" style="text-align:center;">Cómo lo entendemos</div>
+      <h2 class="dpt-values-statement">Responsabilidad. Amor. Sudor.</h2>
+      <div class="dpt-values-grid">
+        <div class="dpt-value">
+          <h3>Responsabilidad</h3>
+          <p>Cuidar la tierra no es una opción estética. Es una responsabilidad compartida entre propietarios, inversores, municipios y ciudadanos.</p>
+        </div>
+        <div class="dpt-value">
+          <h3>Amor</h3>
+          <p>No se recupera una finca mirándola solo como una cifra. La regeneración exige vínculo con el lugar.</p>
+        </div>
+        <div class="dpt-value">
+          <h3>Sudor</h3>
+          <p>El suelo no se regenera desde el discurso. Se regenera con trabajo, presencia, manos y tiempo.</p>
+        </div>
+      </div>
+      <p class="dpt-values-close">
+        «La tierra alimenta a todos. Por eso, cuidarla no puede seguir siendo tarea de unos pocos.»
+      </p>
     </div>
   </section>
 
@@ -355,12 +412,12 @@
       </div>
       <div class="dpt-stats">
         <div class="dpt-stat">
-          <b>+30%</b>
-          <span>de la superficie agrícola mediterránea presenta algún grado de degradación de suelo</span>
+          <b>60–70%</b>
+          <span>de los suelos de la UE no se encuentran en estado saludable, según la Comisión Europea</span>
         </div>
         <div class="dpt-stat">
-          <b>1</b>
-          <span>enfoque: proyectos propios, no servicios a terceros — control total sobre cada recuperación</span>
+          <b>11%</b>
+          <span>de la tierra agrícola de la UE está en riesgo de abandono — ahí es donde miramos primero</span>
         </div>
         <div class="dpt-stat">
           <b>&infin;</b>
@@ -380,7 +437,7 @@
           <div class="dpt-step-num">01</div>
           <div>
             <h3>Identificación</h3>
-            <p>Buscamos fincas mediterráneas con potencial de recuperación: abandonadas, degradadas o infrautilizadas.</p>
+            <p>Buscamos pequeños olivares, almendros y algarrobales con potencial de recuperación: abandonados, degradados o infrautilizados.</p>
           </div>
         </div>
         <div class="dpt-step">
@@ -483,7 +540,7 @@
 
 <footer class="dpt-footer">
   <img src="assets/monogram-square.png" alt="Delta Phi Terra">
-  <div>© 2026 Delta Phi Terra. Proyecto de recuperación de fincas agrícolas y suelo mediterráneo.</div>
+  <div>© 2026 Delta Phi Terra. Pequeños campos, nueva vida.</div>
 </footer>
 
 </body>
