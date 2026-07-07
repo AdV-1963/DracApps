@@ -258,7 +258,26 @@
   .dpt-footer{padding:36px 0; text-align:center; color:#6b7460; font-size:0.85rem;}
   .dpt-footer img{height:34px; margin:0 auto 12px;}
 
+  /* Crawling gecko */
+  .dpt-gecko-crawler{
+    position:fixed; right:14px; top:90px; width:34px; height:auto;
+    z-index:30; opacity:0.9; pointer-events:none;
+    transition:top .12s linear;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,0.18));
+  }
+  .dpt-gecko-crawler.crawling{animation:dpt-gecko-scurry .28s ease-in-out infinite;}
+  @keyframes dpt-gecko-scurry{
+    0%,100%{transform:rotate(0deg) translateX(0);}
+    25%{transform:rotate(-3deg) translateX(-1px);}
+    75%{transform:rotate(3deg) translateX(1px);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .dpt-gecko-crawler{transition:none;}
+    .dpt-gecko-crawler.crawling{animation:none;}
+  }
+
   @media (max-width: 860px){
+    .dpt-gecko-crawler{display:none;}
     .dpt-nav{display:none;}
     .dpt-header-right{gap:10px;}
     .dpt-lang{font-size:0.72rem; gap:4px;}
@@ -595,6 +614,40 @@
   <img src="assets/logo-symbol.png" alt="Delta Phi Terra">
   <div>© 2026 Delta Phi Terra. Small fields, new life.</div>
 </footer>
+
+<img class="dpt-gecko-crawler" src="assets/gecko-crawler.png" alt="">
+<script>
+(function(){
+  var gecko = document.querySelector('.dpt-gecko-crawler');
+  if(!gecko) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ticking = false;
+  var idleTimer = null;
+  function update(){
+    var doc = document.documentElement;
+    var scrollTop = window.scrollY || doc.scrollTop;
+    var scrollable = (doc.scrollHeight - doc.clientHeight) || 1;
+    var pct = Math.min(1, Math.max(0, scrollTop / scrollable));
+    var range = Math.max(0, window.innerHeight - 150);
+    gecko.style.top = (90 + pct * range) + 'px';
+    ticking = false;
+  }
+  function onScroll(){
+    if(!ticking){
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+    if(!reduceMotion){
+      gecko.classList.add('crawling');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(function(){ gecko.classList.remove('crawling'); }, 200);
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 
 </body>
 </html>
