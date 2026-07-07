@@ -2,13 +2,13 @@
 
 Todo el sitio está en bloques de código autocontenidos, sin dependencias
 externas (imágenes y tipografía van incrustadas). Solo hace falta copiar y
-pegar. Hay tres versiones: castellano, inglés y catalán.
+pegar. Hay tres versiones: catalán (la principal), castellano e inglés.
 
 | Idioma | Archivo |
 |---|---|
-| Castellano | `wordpress-embed.html` |
+| Català (principal) | `wordpress-embed.html` |
+| Castellano | `wordpress-embed-es.html` |
 | Inglés | `wordpress-embed-en.html` |
-| Català | `wordpress-embed-ca.html` |
 
 ## 1. Crear las tres páginas
 
@@ -26,31 +26,33 @@ Repite esto tres veces, una por idioma:
 7. Pulsa **Publicar** y anota la URL final que le da WordPress a cada página
    (la verás en la barra de direcciones o en "Ver página").
 
-## 2. Enlazar el selector de idioma (ES / EN / CA)
+## 2. Enlazar el selector de idioma (CA / ES / EN)
 
-Cada versión tiene arriba a la derecha un selector "ES / EN / CA". Tal como
-están los archivos, esos enlaces apuntan a `index.html`, `index-en.html` e
-`index-ca.html` — nombres de archivo que solo funcionan si abres los HTML
-en tu ordenador, **no** las URLs reales de WordPress. Hay que corregirlos
-una vez publicadas las tres páginas y sepas sus URLs finales:
+Cada versión tiene arriba a la derecha un selector "CA / ES / EN" (catalán
+primero, por ser la versión principal). Tal como están los archivos, esos
+enlaces apuntan a `index.html`, `index-es.html` e `index-en.html` — nombres
+de archivo que solo funcionan si abres los HTML en tu ordenador, **no** las
+URLs reales de WordPress. Hay que corregirlos una vez publicadas las tres
+páginas y sepas sus URLs finales:
 
-1. Edita la página en castellano → abre el bloque de HTML personalizado.
-2. Busca (Ctrl+F) las tres apariciones de `index.html`, `index-en.html` y
-   `index-ca.html` (están juntas, en la barra de navegación superior) y
+1. Edita la página en catalán (la principal) → abre el bloque de HTML
+   personalizado.
+2. Busca (Ctrl+F) las tres apariciones de `index.html`, `index-es.html` y
+   `index-en.html` (están juntas, en la barra de navegación superior) y
    sustitúyelas por las URLs reales, por ejemplo:
 
    ```html
-   <a href="/delta-phi-terra/">ES</a><span>/</span>
-   <a href="/en/delta-phi-terra/">EN</a><span>/</span>
-   <a href="/ca/delta-phi-terra/">CA</a>
+   <a href="/terra/">CA</a><span>/</span>
+   <a href="/es/terra/">ES</a><span>/</span>
+   <a href="/en/terra/">EN</a>
    ```
-3. Repite lo mismo en las páginas EN y CA (el bloque de navegación es
+3. Repite lo mismo en las páginas ES y EN (el bloque de navegación es
    idéntico en las tres, solo cambia qué idioma aparece resaltado).
 4. Actualiza/publica cada página.
 
 Dímelo si quieres y te devuelvo los tres archivos ya con las URLs
 definitivas puestas, en cuanto sepas cómo vas a organizar las rutas
-(por ejemplo `/terra/`, `/en/terra/`, `/ca/terra/`).
+(por ejemplo `/terra/`, `/es/terra/`, `/en/terra/`).
 
 ## 3. Enlazarlas en el menú
 
